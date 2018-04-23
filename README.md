@@ -28,8 +28,9 @@ Everyone has their preferences. I'll leave it up to you. Download and install yo
 - [Brackets](http://brackets.io/) (free)
 - [Sublime](http://www.sublimetext.com) (paid)
 - [Vim](http://www.vim.org/) (free)
+- [Visual Studio Code](https://code.visualstudio.com) (free)
 
-Although [Webstorm](https://www.jetbrains.com/webstorm/) is a paid javascript IDE, it's pretty light and popular too.
+Although [Webstorm](https://www.jetbrains.com/webstorm/) is a paid javascript IDE, it's pretty light and very popular too.
 
 ## XCode CommandLine Tools
 
@@ -101,17 +102,20 @@ You should get a message like this
 
 # Node.js
 
-To install Node.js there are a couple alternatives
+To install [node.js](https://github.com/nodejs/node) there are a few of alternatives:
 
--  NVM
+1) NVM
 
-I like to install [node.js](https://github.com/nodejs/node) using [Node Version Mananger](https://github.com/creationix/nvm). Open the previous link and follow the instructions of your preferences. The easy way is to use  the **install script** [nvm v031.1](https://github.com/creationix/nvm/blob/v0.31.1/install.sh) similar to:
+My preference is to use version managers for any language.
+Nvm is a script-based node version manager. You can install it easily with a curl and bash one-liner as described in their [documentation](https://github.com/creationix/nvm). Open the previous link and follow the instructions of your preferences.
 
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
+To me, the easier way is to use  the **install script** [nvm v031.1](https://github.com/creationix/nvm/blob/v0.31.1/install.sh) similar to:
+
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.9/install.sh | bash
 
 or
 
-    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
+    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.9/install.sh | bash
 
 
 **Note**: if you don't have wget you can install it with:
@@ -126,16 +130,33 @@ To verify that nvm has been installed, do:
 
     command -v nvm
 
+Assuming you have successfully installed nvm. The following will install the latest version of node.
 
--  You can also install it with:
+     nvm install node --reinstall-packages-from=node
+
+
+2)  Homebrew
 
 
     brew update
-
     brew install node
 
+or
 
-- Or download pre-built [installer](https://nodejs.org/en/) for your platform.
+    brew update
+    brew install node
+
+3) N
+
+N is an npm-based node version manager. First, you have to install some version of node, then running
+
+    npm install -g n
+
+Assuming you have successfully installed n. The following will install the latest version of node.
+
+     sudo n latest
+
+4) Or download pre-built [installer](https://nodejs.org/en/) for your platform.
 
 ## Npm
 Npm is the package manager for JavaScript. It's installed when you install Node.js
@@ -166,7 +187,18 @@ To uninstall a package:
 
     npm uninstall <package>
 
-## io.js    
+## Tips
+
+## Security Scanning
+Packages can be published npm by anyone, so security and vulnerability issues are possible to happen. [retire.js](https://retirejs.github.io/retire.js/) and [nsp](https://nodesecurity.io/) (adquire by npm) are ways to check your
+project's dependencies for known vulnerabilities.
+
+### Setup Node Security platform
+
+    npm install -g nsp
+
+
+### io.js    
 
 [io.js](https://iojs.org) has merged with the Node.js. All of the features in io.js are available in Node.js v4 and above.    
 
